@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Forma — Contact & FAQ</title>
+<style>
+  :root{--bg:#0C1210;--bg2:#121916;--card:#101714;--line:#1b2622;--text:#F4F7F6;--muted:#C6DAD3;--jade:#0BAE7E;--jade-dark:#0A8A64;--maxw:900px;--radius:16px}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--jade);text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:50;background:rgba(12,18,16,.55);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:10px}
+  .brand svg{width:22px;height:22px}
+  section{padding:84px 0;border-bottom:1px solid var(--line)}
+  h1{font-size:clamp(28px,5vw,44px);margin:0 0 10px}
+  h2{font-size:clamp(22px,4vw,32px);margin:0 0 10px}
+  p.muted{color:var(--muted)}
+  .card{background:linear-gradient(180deg,var(--card),#0f1513);border:1px solid #ffffff12;border-radius:var(--radius);padding:20px}
+  details{border:1px solid #ffffff14;border-radius:12px;padding:12px 14px;background:#0f1513}
+  details+details{margin-top:10px}
+  summary{cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-label="Forma logo"><path fill="#0BAE7E" d="M32 6c2.5 0 4.5 2 4.5 4.5v9.2c0 2 .8 3 2.7 3h9.3c2.5 0 4.5 2 4.5 4.5S51 32 48.5 32h-9.2c-2 0-3 .8-3 2.7v9.3c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5v-9.2c0-2-.8-3-2.7-3h-9.3C10 32 8 30 8 27.5S10 23 12.5 23h9.2c2 0 3-.8 3-2.7v-9.3C24.7 8 26.6 6 29.1 6H32z"/></svg>
+      <strong>Forma</strong>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="container">
+      <h1>Contact</h1>
+      <p class="muted">Quickest way: book a call. Or email us — we’ll reply within 24–48h.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+        <a href="https://calendly.com/your-link" target="_blank" rel="noopener" style="background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;padding:12px 18px;border-radius:14px;font-weight:600">Book a Call</a>
+        <a href="mailto:hello@yourdomain.com" style="border:1px solid #ffffff24;padding:12px 18px;border-radius:14px;font-weight:600">Email Us</a>
+        <a href="https://checkout.stripe.com/your-link" target="_blank" rel="noopener" style="border:1px solid #ffffff24;padding:12px 18px;border-radius:14px;font-weight:600">Pay Securely</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <details class="card"><summary><strong>Do you work only with Shopify?</strong></summary><p class="muted">We adapt to modern e-commerce stacks. If you sell online, we can automate your operations.</p></details>
+      <details class="card"><summary><strong>What’s the typical ROI?</strong></summary><p class="muted">Most brands see more carts recovered, faster billing, and hours saved weekly. We’ll map clear KPIs during your audit.</p></details>
+      <details class="card"><summary><strong>Who owns the tools?</strong></summary><p class="muted">You do. We configure and maintain them — you keep full access and ownership.</p></details>
+      <details class="card"><summary><strong>How are payments handled?</strong></summary><p class="muted">Monthly subscription via Stripe. You also pay your own software subscriptions directly.</p></details>
+    </div>
+  </section>
+
+  <section id="policy">
+    <div class="container">
+      <h2>Privacy Policy (placeholder)</h2>
+      <p class="muted">Add your policy here when ready.</p>
+    </div>
+  </section>
+
+  <section id="agreement">
+    <div class="container">
+      <h2>Service Agreement (summary)</h2>
+      <p class="muted">We provide automation services as described in your package. Monthly billing in advance. You own your tools. We limit liability to recent fees paid. Full agreement shared for e-signature before onboarding.</p>
+    </div>
+  </section>
+</main>
+
+<footer style="padding:44px 0;color:#a7c3bb">
+  <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span>© <script>document.write(new Date().getFullYear())</script> Forma</span>
+    <span><a href="#policy">Privacy Policy</a> · <a href="#agreement">Service Agreement</a></span>
+  </div>
+</footer>
+</body>
+</html>
