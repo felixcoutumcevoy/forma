@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Forma — Products & Packages</title>
+<style>
+  :root{--bg:#0C1210;--bg2:#121916;--card:#101714;--line:#1b2622;--text:#F4F7F6;--muted:#C6DAD3;--jade:#0BAE7E;--jade-dark:#0A8A64;--maxw:1200px;--radius:16px}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--jade);text-decoration:none}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  header{position:sticky;top:0;z-index:50;background:rgba(12,18,16,.55);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand svg{width:24px;height:24px}
+  section{padding:88px 0;border-bottom:1px solid var(--line)}
+  h1{font-size:clamp(28px,5vw,48px);margin:0 0 10px}
+  h2{font-size:clamp(24px,4vw,36px);margin:0 0 10px}
+  p.muted{color:var(--muted)}
+  .grid{display:grid;gap:22px}
+  .grid-2{grid-template-columns:1fr 1fr}
+  @media(max-width:960px){.grid-2{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--card),#0f1513);border:1px solid #ffffff12;border-radius:var(--radius);padding:22px}
+  .pill{display:inline-block;padding:6px 10px;border:1px solid #2a6a58;border-radius:999px;color:#aee3cf;font-size:12px;margin-bottom:10px}
+  .price{color:#dbf1e8;font-weight:700;margin-top:6px}
+  .kpi{display:flex;gap:12px;flex-wrap:wrap}
+  .kpi .b{background:#12332a;border:1px solid #235445;border-radius:10px;padding:6px 10px;color:#bfe7d7;font-size:12px}
+  .media{border:1px solid #ffffff12;border-radius:14px;overflow:hidden}
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-label="Forma logo"><path fill="#0BAE7E" d="M32 6c2.5 0 4.5 2 4.5 4.5v9.2c0 2 .8 3 2.7 3h9.3c2.5 0 4.5 2 4.5 4.5S51 32 48.5 32h-9.2c-2 0-3 .8-3 2.7v9.3c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5v-9.2c0-2-.8-3-2.7-3h-9.3C10 32 8 30 8 27.5S10 23 12.5 23h9.2c2 0 3-.8 3-2.7v-9.3C24.7 8 26.6 6 29.1 6H32z"/></svg>
+      <strong>Forma</strong>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#packages">Packages</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="container">
+      <h1>Products & Packages</h1>
+      <p class="muted">Exactly what you get, why it matters, and the ROI to expect.</p>
+    </div>
+  </section>
+
+  <section id="starter">
+    <div class="container grid grid-2">
+      <div class="card">
+        <span class="pill">Starter</span>
+        <h2>Starter Automation</h2>
+        <p class="muted">Quick wins and visibility. We stop the obvious leaks and give you a simple view of performance.</p>
+        <ul>
+          <li>Cart recovery messages (email/SMS)</li>
+          <li>Order confirmations & thank-you</li>
+          <li>Basic customer tracking</li>
+          <li>Simple KPI dashboard</li>
+        </ul>
+        <div class="price">from $1,000 / month</div>
+        <div class="kpi" style="margin-top:12px">
+          <span class="b">+10–25% carts recovered</span>
+          <span class="b">Fewer manual hours</span>
+        </div>
+      </div>
+      <div class="media">
+        <!-- Replace with your image/video -->
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Starter visuals">
+      </div>
+    </div>
+  </section>
+
+  <section id="growth">
+    <div class="container grid grid-2">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1200&auto=format&fit=crop" alt="Growth visuals">
+      </div>
+      <div class="card">
+        <span class="pill">Most Popular</span>
+        <h2>Growth Automation</h2>
+        <p class="muted">Go deeper into retention and operations. Better segments, automatic billing, and richer dashboards.</p>
+        <ul>
+          <li>Post-purchase & loyalty flows</li>
+          <li>Automated invoicing</li>
+          <li>Customer segments & alerts</li>
+          <li>Advanced KPI dashboard</li>
+        </ul>
+        <div class="price">from $2,500 / month</div>
+        <div class="kpi" style="margin-top:12px">
+          <span class="b">Higher LTV</span>
+          <span class="b">Faster billing</span>
+          <span class="b">Operational clarity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="full">
+    <div class="container grid grid-2">
+      <div class="card">
+        <span class="pill">Full</span>
+        <h2>Full System</h2>
+        <p class="muted">A self-running operation. End-to-end workflows from purchase to support, with executive reporting.</p>
+        <ul>
+          <li>End-to-end automations</li>
+          <li>Support & returns workflows</li>
+          <li>Re-engagement programs</li>
+          <li>Executive dashboards</li>
+        </ul>
+        <div class="price">from $5,000 / month</div>
+        <div class="kpi" style="margin-top:12px">
+          <span class="b">Team hours saved</span>
+          <span class="b">Fewer errors</span>
+          <span class="b">Scale-ready</span>
+        </div>
+      </div>
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1551281044-8d8fad7b2d7b?q=80&w=1200&auto=format&fit=crop" alt="Full visuals">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>How we work</h2>
+      <p class="muted">1) Quick audit → 2) Priority map → 3) Implement modules → 4) Measure & iterate. You keep full ownership of your tools — we build and maintain the systems.</p>
+      <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://calendly.com/your-link" target="_blank" rel="noopener" style="background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;padding:12px 18px;border-radius:14px;font-weight:600">Book a Call</a>
+        <a href="contact.html" style="border:1px solid #ffffff24;padding:12px 18px;border-radius:14px;font-weight:600">Contact / FAQ</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" style="padding:44px 0;color:#a7c3bb">
+  <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span>© <script>document.write(new Date().getFullYear())</script> Forma</span>
+    <span><a href="contact.html#policy">Privacy Policy</a> · <a href="contact.html#agreement">Service Agreement</a></span>
+  </div>
+</footer>
+</body>
+</html>
