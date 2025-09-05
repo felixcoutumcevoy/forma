@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Forma — E-commerce Automation</title>
+  <meta name="description" content="We automate your brand’s systems so you can scale faster." />
+  <style>
+    :root{
+      --bg:#0F0F0F;        /* primary background */
+      --bg2:#1A1A1A;       /* secondary background */
+      --text:#F5F5F5;      /* off-white text */
+      --muted:#C8C8C8;     /* muted text */
+      --accent:#00B377;    /* deep green accent */
+      --accent-weak:#00b37722;
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(15,15,15,.7);backdrop-filter:blur(8px);border-bottom:1px solid #ffffff12;z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:28px;width:28px}
+    .brand span{font-weight:700;letter-spacing:.4px}
+    .nav a.btn{padding:10px 16px;border:1px solid var(--accent);border-radius:10px}
+    .nav a.btn:hover{background:var(--accent);color:#000}
+    .hero{padding:92px 0 56px;background:
+      radial-gradient(600px 300px at 20% -10%,var(--accent-weak),transparent),
+      radial-gradient(600px 300px at 80% 0%,#00ffb012,transparent)}
+    h1{font-size:clamp(32px,6vw,56px);line-height:1.1;margin:0 0 12px}
+    .sub{color:var(--muted);font-size:clamp(16px,2.2vw,20px);max-width:760px}
+    .cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+    .btn-primary,.btn-secondary{
+      padding:12px 18px;border-radius:12px;font-weight:600;display:inline-block
+    }
+    .btn-primary{background:var(--accent);color:#09110f}
+    .btn-primary:hover{filter:brightness(1.1)}
+    .btn-secondary{border:1px solid #ffffff22}
+    section{padding:72px 0;border-top:1px solid #ffffff10}
+    .grid{display:grid;gap:20px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    .card{background:var(--bg2);border:1px solid #ffffff12;border-radius:16px;padding:20px}
+    h2{font-size:clamp(24px,3.5vw,34px);margin:0 0 18px}
+    h3{margin:0 0 10px;font-size:20px}
+    ul{margin:10px 0 0 18px;padding:0}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid #ffffff22;border-radius:999px;color:var(--muted);font-size:14px}
+    .muted{color:var(--muted)}
+    .pricing .card{display:flex;flex-direction:column;gap:12px}
+    .price{font-weight:700}
+    .footer{padding:36px 0;color:#9a9a9a;font-size:14px}
+    .kpi{display:flex;gap:14px;align-items:center}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .tag{font-size:12px;color:#9bd6c0;border:1px dashed #00b37755;border-radius:8px;padding:3px 8px}
+    .logo-inline{display:flex;gap:10px;align-items:center}
+    /* simple smooth scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <!-- Replace src with your uploaded green logo file path -->
+      <img src="logo.png" alt="Forma logo" />
+      <span>Forma</span>
+    </div>
+    <nav class="logo-inline" aria-label="Main navigation">
+      <a href="#packages">Packages</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#contact" class="btn">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <h1>We automate your brand’s systems so you can scale faster.</h1>
+      <p class="sub">Automation-only. We turn manual work (carts, CRM, invoicing, reporting, support) into systems that run 24/7 — so your team focuses on growth.</p>
+      <div class="cta-row">
+        <!-- Replace with your real Calendly link -->
+        <a class="btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
+        <a class="btn-secondary" href="#packages">See Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section id="problems">
+    <div class="container grid grid-3">
+      <div class="card"><h3>Abandoned carts → lost revenue</h3><p class="muted">Recover 10–25% with automated email/SMS flows.</p></div>
+      <div class="card"><h3>Manual invoicing → slow cashflow</h3><p class="muted">Generate and send invoices automatically with Stripe.</p></div>
+      <div class="card"><h3>Messy spreadsheets → poor tracking</h3><p class="muted">Create a clean CRM (HubSpot/Airtable) that updates itself.</p></div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <h2>We turn manual work into automated systems.</h2>
+      <p class="muted">From checkout to customer support, our automations run your store 24/7. Works with Shopify, WooCommerce, BigCommerce, Magento, or custom stacks.</p>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card">
+          <span class="pill">Cart & Post-Purchase</span>
+          <h3>Recover & retain</h3>
+          <ul>
+            <li>Abandoned cart email/SMS</li>
+            <li>Thank-you & review requests</li>
+            <li>Loyalty nudges</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill">CRM & Invoicing</span>
+          <h3>Segment & streamline</h3>
+          <ul>
+            <li>HubSpot/GoHighLevel tagging</li>
+            <li>Stripe auto-invoices</li>
+            <li>VIP / churn-risk segments</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="pill">Dashboards & Alerts</span>
+          <h3>See everything live</h3>
+          <ul>
+            <li>Looker Studio KPIs</li>
+            <li>Slack/WhatsApp notifications</li>
+            <li>Daily sales summaries</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="pricing">
+    <div class="container">
+      <h2>Choose Your Automation Package</h2>
+      <div class="grid grid-3" style="margin-top:18px">
+
+        <div class="card">
+          <div class="tag">Starter</div>
+          <h3>Starter Automation</h3>
+          <div class="price muted">from $1,000 / month</div>
+          <ul>
+            <li>Works with Shopify / Woo / BigCommerce / Magento</li>
+            <li>Abandoned cart email/SMS</li>
+            <li>Order confirmation & thank-you flows</li>
+            <li>Basic CRM (Airtable/Google Sheet)</li>
+            <li>Simple sales dashboard</li>
+          </ul>
+          <a class="btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+        </div>
+
+        <div class="card">
+          <div class="tag">Most Popular</div>
+          <h3>Growth Automation</h3>
+          <div class="price muted">from $2,500 / month</div>
+          <ul>
+            <li>Advanced CRM (HubSpot/GoHighLevel)</li>
+            <li>Post-purchase flows (upsells, reviews, loyalty)</li>
+            <li>Automated invoicing (Stripe)</li>
+            <li>Slack/WhatsApp team notifications</li>
+            <li>Advanced dashboards (Looker Studio)</li>
+          </ul>
+          <a class="btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+        </div>
+
+        <div class="card">
+          <div class="tag">Full</div>
+          <h3>Full System</h3>
+          <div class="price muted">from $5,000 / month</div>
+          <ul>
+            <li>End-to-end automations (onboarding, returns, subscriptions, support)</li>
+            <li>Gorgias/Zendesk integration</li>
+            <li>Loyalty & re-engagement automations</li>
+            <li>Custom executive dashboards</li>
+            <li>Team training + ongoing optimization</li>
+          </ul>
+          <a class="btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+        </div>
+
+      </div>
+      <p class="muted" style="margin-top:12px">Need something specific? We can customize any package.</p>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="cases">
+    <div class="container">
+      <h2>System wins we deliver</h2>
+      <div class="grid grid-3" style="margin-top:18px">
+        <div class="card">
+          <h3>Skincare Brand</h3>
+          <p class="muted">Cart recovery automation → <strong>+25% recovered sales</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>Energy Drink</h3>
+          <p class="muted">CRM + invoicing automation → <strong>10h/week saved</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>Home Decor</h3>
+          <p class="muted">Support automation → <strong>60% faster responses</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2>Let’s automate your store.</h2>
+      <p class="muted">Book a free call and see how we can build your growth system.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
+        <!-- Replace with your Stripe Checkout subscription link -->
+        <a class="btn-secondary" href="https://checkout.stripe.com/your-link" target="_blank" rel="noopener">Pay Securely</a>
+        <!-- Email contact -->
+        <a class="btn-secondary" href="mailto:hello@yourdomain.com">Email Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span>© <span id="year"></span> Forma</span>
+      <span><a href="#">Privacy Policy</a> · <a href="#">Service Agreement</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
