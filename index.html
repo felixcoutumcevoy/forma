@@ -1,109 +1,94 @@
 <!doctype html>
 <html lang="en">
-<img src="logo.png" alt="Forma logo"/>
+<head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Forma — E-commerce Automation</title>
 <meta name="description" content="We automate your brand’s systems so you can scale faster."/>
 <style>
-  /* ====== THEME ====== */
+  /* ===== Theme (lighter, luxe jade) ===== */
   :root{
-    --bg:#0A0F0D;           /* deep near-black (cool) */
-    --bg2:#101614;          /* secondary panel */
-    --card:#0E1412;         /* card surface */
-    --line:#1c2622;         /* hairline */
-    --text:#F2F5F4;         /* off-white */
-    --muted:#BFD6CF;        /* soft desaturated mint */
-    --jade:#0BAE7E;         /* luxe jade */
-    --jade-dark:#0A8A64;    /* darker jade */
-    --jade-weak:#0bae7e22;  /* translucent jade */
-    --maxw:1200px;
-    --radius:16px;
+    --bg:#0C1210;          /* lighter near-black */
+    --bg2:#121916;         /* section / cards */
+    --card:#101714;
+    --line:#1b2622;
+    --text:#F4F7F6;
+    --muted:#C6DAD3;
+    --jade:#0BAE7E;
+    --jade-dark:#0A8A64;
+    --jade-ghost:#0bae7e22;
+    --maxw:1200px; --radius:16px;
   }
-
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--text);
     font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased; scroll-behavior:smooth}
+    -webkit-font-smoothing:antialiased;scroll-behavior:smooth}
   a{color:var(--jade);text-decoration:none}
   img{max-width:100%;display:block}
 
-  /* ====== LAYOUT ====== */
   .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  header{position:sticky;top:0;z-index:50;background:rgba(10,15,13,.6);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+  header{position:sticky;top:0;z-index:50;background:rgba(12,18,16,.55);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+
+  /* Inline logo + wordmark */
   .brand{display:flex;align-items:center;gap:12px}
-  .brand img{width:28px;height:28px}
+  .brand svg{width:28px;height:28px;display:block}
   .brand span{font-weight:700;letter-spacing:.4px}
-  nav a{padding:10px 12px;color:#dfeeea}
+
+  nav a{padding:10px 12px;color:#eaf6f2}
   nav a.btn{border:1px solid var(--jade);border-radius:12px}
   nav a.btn:hover{background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#07110d}
 
-  /* ====== HERO ====== */
-  .hero{
-    position:relative; overflow:hidden;
-    padding:120px 0 96px;
+  /* Hero */
+  .hero{position:relative;overflow:hidden;padding:120px 0 96px;
     background:
-      radial-gradient(900px 480px at 15% -10%, #0bae7e18, transparent 60%),
-      radial-gradient(700px 360px at 85% 0%,  #0fd3a022, transparent 65%);
+      radial-gradient(900px 520px at 20% -10%, var(--jade-ghost), transparent 60%),
+      radial-gradient(700px 360px at 85% 0%,  #11e0b028, transparent 65%);
     border-bottom:1px solid var(--line);
   }
-  .hero-center{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  .hero-center{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  @media (max-width:960px){.hero-center{grid-template-columns:1fr}}
   .hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;margin:0 0 16px}
-  .hero p.sub{color:var(--muted);font-size:clamp(16px,2vw,20px);max-width:720px;margin:0 auto 0 0}
+  .hero p.sub{color:var(--muted);font-size:clamp(16px,2vw,20px);max-width:720px}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-  .btn{
-    display:inline-block;padding:12px 18px;border-radius:14px;font-weight:600
-  }
-  .btn-primary{
-    background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;
-    box-shadow:0 10px 30px #0bae7e33
-  }
-  .btn-primary:hover{filter:brightness(1.07)}
+  .btn{display:inline-block;padding:12px 18px;border-radius:14px;font-weight:600}
+  .btn-primary{background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;box-shadow:0 10px 30px #0bae7e33}
   .btn-ghost{border:1px solid #ffffff24}
 
-  /* mockup panel */
-  .hero-mock{
-    position:relative; border:1px solid #ffffff0f;background:var(--card);
-    border-radius:20px; padding:18px; box-shadow:0 30px 80px #0008
-  }
-  .glow{
-    position:absolute; inset:-30%; background:radial-gradient(closest-side, #0bae7e20, transparent);
-    filter:blur(40px); z-index:-1; transform:translateY(0); will-change:transform;
-  }
+  .hero-mock{position:relative;border:1px solid #ffffff0f;background:var(--card);
+    border-radius:20px;padding:18px;box-shadow:0 30px 80px #0008}
+  .glow{position:absolute;inset:-30%;background:radial-gradient(closest-side, #0bae7e20, transparent);
+    filter:blur(42px);z-index:-1;transform:translateY(0);will-change:transform;}
 
-  /* ====== SECTIONS ====== */
-  section{padding:84px 0;border-bottom:1px solid var(--line)}
+  /* Sections */
+  section{padding:96px 0;border-bottom:1px solid var(--line)}
   h2{font-size:clamp(28px,4vw,40px);margin:0 0 12px}
   .muted{color:var(--muted)}
   .grid{display:grid;gap:24px}
   .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
   .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-  @media (max-width:960px){.hero-center,.grid-2,.grid-3{grid-template-columns:1fr}}
+  @media (max-width:960px){.grid-3,.grid-2{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--card),#0f1513);border:1px solid #ffffff12;border-radius:var(--radius);padding:22px}
+  .pill{display:inline-block;padding:6px 10px;border:1px solid #2a6a58;border-radius:999px;color:#aee3cf;font-size:12px;margin-bottom:10px}
 
-  .card{
-    background:linear-gradient(180deg, var(--card), #0d1311);
-    border:1px solid #ffffff12;border-radius:var(--radius);padding:22px
-  }
-  .card h3{margin:0 0 8px;font-size:20px}
-  .pill{display:inline-block;padding:6px 10px;border:1px solid #275b4c;border-radius:999px;color:#9bd6c0;font-size:12px;margin-bottom:10px}
-
-  /* alternating blocks */
-  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
-  .split .panel{border:1px solid #ffffff12;background:var(--bg2);border-radius:18px;padding:22px}
+  /* Alternating split */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+  .panel{border:1px solid #ffffff12;background:var(--bg2);border-radius:18px;padding:24px}
   @media (max-width:960px){.split{grid-template-columns:1fr}}
 
-  /* ====== PRICING ====== */
-  .pricing .card{display:flex;flex-direction:column;gap:12px}
+  /* Pricing */
+  .pricing .card{display:flex;flex-direction:column;gap:12px;min-height:520px}
   .price{color:#dbf1e8;font-weight:700}
   .tag{font-size:12px;border:1px dashed #2e6b5a;border-radius:10px;padding:4px 8px;color:#aee3cf;align-self:flex-start}
+  .spacer{flex:1} /* keeps buttons aligned */
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
 
-  /* ====== FOOTER ====== */
-  .footer{padding:40px 0;color:#a7c3bb;font-size:14px}
+  /* Footer */
+  .footer{padding:48px 0;color:#a7c3bb;font-size:14px}
 
-  /* ====== SCROLL REVEAL ====== */
-  .reveal{opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease}
-  .reveal.show{opacity:1; transform:translateY(0)}
+  /* Scroll reveal (smoother) */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1)}
+  .reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -111,15 +96,17 @@
 <header>
   <div class="container nav">
     <div class="brand">
-      <!-- Replace src with your transparent green logo path -->
-      <img src="logo.png" alt="Forma logo"/>
+      <!-- INLINE SVG LOGO (no file needed). Change fill to tweak color. -->
+      <svg viewBox="0 0 64 64" aria-label="Forma logo" role="img">
+        <path fill="var(--jade)" d="M32 6c2.5 0 4.5 2 4.5 4.5v9.2c0 2 .8 3 2.7 3h9.3c2.5 0 4.5 2 4.5 4.5S51 32 48.5 32h-9.2c-2 0-3 .8-3 2.7v9.3c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5v-9.2c0-2-.8-3-2.7-3h-9.3C10 32 8 30 8 27.5S10 23 12.5 23h9.2c2 0 3-.8 3-2.7v-9.3C24.7 8 26.6 6 29.1 6H32z"/>
+      </svg>
       <span>Forma</span>
     </div>
     <nav>
       <a href="#systems">Systems</a>
+      <a href="products.html">Products</a>
       <a href="#packages">Packages</a>
-      <a href="#cases">Case Studies</a>
-      <a href="#contact" class="btn btn-ghost">Contact</a>
+      <a href="contact.html" class="btn">Contact</a>
     </nav>
   </div>
 </header>
@@ -131,34 +118,33 @@
     <div class="container hero-center">
       <div class="reveal">
         <h1>We automate your brand’s systems so you can scale faster.</h1>
-        <p class="sub">Automation-only. We turn manual work (carts, CRM, invoicing, reporting, support) into systems running 24/7 — so your team focuses on growth.</p>
+        <p class="sub">Automation-only. We replace repetitive work (carts, CRM, invoicing, reporting, support) with systems that run 24/7 — so your team can focus on growth.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
-          <a class="btn btn-ghost" href="#packages">See Packages</a>
+          <a class="btn btn-ghost" href="products.html">Learn More</a>
         </div>
       </div>
       <div class="hero-mock reveal">
-        <!-- Replace with your dashboard image if you have one -->
         <img src="https://images.unsplash.com/photo-1640622658758-57b6b3fe4a15?q=80&w=1200&auto=format&fit=crop" alt="Automation dashboard mockup"/>
       </div>
     </div>
   </section>
 
-  <!-- PROBLEMS (alternating split) -->
+  <!-- PROBLEMS (alternating) -->
   <section id="problems">
     <div class="container split">
       <div class="panel reveal">
         <h2>Operations steal your time.</h2>
-        <p class="muted">Abandoned carts, manual invoices, messy spreadsheets, slow follow-ups — all of it compounds. We replace repetitive work with reliable automation.</p>
-        <div class="grid grid-2" style="margin-top:12px">
-          <div class="card"><h3>Abandoned carts → lost revenue</h3><p class="muted">Recover 10–25% with email/SMS flows.</p></div>
-          <div class="card"><h3>Manual invoicing → slow cash</h3><p class="muted">Auto-generate & send invoices via Stripe.</p></div>
-          <div class="card"><h3>Messy tracking</h3><p class="muted">Build a clean CRM that updates itself.</p></div>
-          <div class="card"><h3>Slow follow-ups</h3><p class="muted">Segment, trigger, and notify in real time.</p></div>
+        <p class="muted">Abandoned carts, invoices, copy-paste spreadsheets, slow follow-ups — it adds up. We build reliable automations so your operations stop leaking time and money.</p>
+        <div class="grid grid-2" style="margin-top:14px">
+          <div class="card"><h3>Lost revenue</h3><p class="muted">Recover more carts and repeat purchases automatically.</p></div>
+          <div class="card"><h3>Slow cashflow</h3><p class="muted">Send invoices and confirmations instantly.</p></div>
+          <div class="card"><h3>Messy data</h3><p class="muted">Keep customers organized without manual updates.</p></div>
+          <div class="card"><h3>Missed follow-ups</h3><p class="muted">Trigger the right message at the right time.</p></div>
         </div>
       </div>
       <div class="panel reveal">
-        <img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1200&auto=format&fit=crop" alt="Ops visual"/>
+        <img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1200&auto=format&fit=crop" alt="Operations visual"/>
       </div>
     </div>
   </section>
@@ -167,56 +153,60 @@
   <section id="systems">
     <div class="container">
       <h2 class="reveal">Systems that replace repetitive work.</h2>
-      <p class="muted reveal">Works with Shopify, WooCommerce, BigCommerce, Magento, or custom stacks.</p>
+      <p class="muted reveal">Works with modern e-commerce stacks. We adapt to your tools.</p>
       <div class="grid grid-3" style="margin-top:18px">
         <div class="card reveal">
-          <span class="pill">Cart & Post-Purchase</span>
+          <span class="pill">Retention</span>
           <h3>Recover & retain</h3>
           <ul>
-            <li>Abandoned cart email/SMS</li>
-            <li>Thank-you & review requests</li>
-            <li>Loyalty nudges</li>
+            <li>Abandoned cart messages</li>
+            <li>Thank-you & review nudges</li>
+            <li>Loyalty touchpoints</li>
           </ul>
         </div>
         <div class="card reveal">
-          <span class="pill">CRM & Invoicing</span>
-          <h3>Segment & streamline</h3>
+          <span class="pill">Operations</span>
+          <h3>Streamline & standardize</h3>
           <ul>
-            <li>HubSpot/GoHighLevel tagging</li>
-            <li>Stripe auto-invoices</li>
-            <li>VIP / churn-risk segments</li>
+            <li>Customer tracking</li>
+            <li>Automated invoicing</li>
+            <li>Smart segmentation</li>
           </ul>
         </div>
         <div class="card reveal">
-          <span class="pill">Dashboards & Alerts</span>
+          <span class="pill">Visibility</span>
           <h3>See everything live</h3>
           <ul>
-            <li>Looker Studio KPIs</li>
-            <li>Slack/WhatsApp notifications</li>
-            <li>Daily sales summaries</li>
+            <li>Daily KPIs dashboard</li>
+            <li>Team alerts</li>
+            <li>Weekly summaries</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PACKAGES -->
+  <!-- PACKAGES (simplified bullets, aligned buttons) -->
   <section id="packages" class="pricing">
     <div class="container">
       <h2 class="reveal">Choose Your Automation Package</h2>
+      <p class="muted reveal">Clear starting points. We can customize as you scale.</p>
       <div class="grid grid-3" style="margin-top:18px">
         <div class="card reveal">
           <div class="tag">Starter</div>
           <h3>Starter Automation</h3>
           <div class="price">from $1,000 / month</div>
           <ul>
-            <li>Shopify / Woo / BigCommerce / Magento</li>
-            <li>Abandoned cart email/SMS</li>
-            <li>Order confirmation & thank-you flows</li>
-            <li>Basic CRM (Airtable/Google Sheet)</li>
-            <li>Simple sales dashboard</li>
+            <li>Cart recovery messages</li>
+            <li>Order confirmations</li>
+            <li>Basic customer tracking</li>
+            <li>Simple KPI dashboard</li>
           </ul>
-          <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-ghost" href="products.html#starter">Learn More</a>
+          </div>
         </div>
 
         <div class="card reveal">
@@ -224,13 +214,16 @@
           <h3>Growth Automation</h3>
           <div class="price">from $2,500 / month</div>
           <ul>
-            <li>Advanced CRM (HubSpot/GoHighLevel)</li>
-            <li>Post-purchase flows (upsells, reviews, loyalty)</li>
-            <li>Automated invoicing (Stripe)</li>
-            <li>Slack/WhatsApp team notifications</li>
-            <li>Advanced dashboards (Looker Studio)</li>
+            <li>Post-purchase & loyalty flows</li>
+            <li>Automated invoicing</li>
+            <li>Customer segments & alerts</li>
+            <li>Advanced KPI dashboard</li>
           </ul>
-          <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-ghost" href="products.html#growth">Learn More</a>
+          </div>
         </div>
 
         <div class="card reveal">
@@ -238,44 +231,29 @@
           <h3>Full System</h3>
           <div class="price">from $5,000 / month</div>
           <ul>
-            <li>End-to-end automations (onboarding, returns, subscriptions, support)</li>
-            <li>Gorgias/Zendesk integration</li>
-            <li>Loyalty & re-engagement automations</li>
-            <li>Custom executive dashboards</li>
-            <li>Team training + ongoing optimization</li>
+            <li>End-to-end automations</li>
+            <li>Support & returns workflows</li>
+            <li>Re-engagement programs</li>
+            <li>Executive dashboards</li>
           </ul>
-          <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+          <div class="spacer"></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-ghost" href="products.html#full">Learn More</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CASES (alternating split) -->
-  <section id="cases">
-    <div class="container split">
-      <div class="panel reveal">
-        <h2>System wins we deliver</h2>
-        <div class="grid">
-          <div class="card"><h3>Skincare Brand</h3><p class="muted">Cart recovery automation → <strong>+25% recovered sales</strong>.</p></div>
-          <div class="card"><h3>Energy Drink</h3><p class="muted">CRM + invoicing → <strong>10h/week saved</strong>.</p></div>
-          <div class="card"><h3>Home Decor</h3><p class="muted">Support automation → <strong>60% faster responses</strong>.</p></div>
-        </div>
-      </div>
-      <div class="panel reveal">
-        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1200&auto=format&fit=crop" alt="Case visuals"/>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="reveal">Let’s automate your store.</h2>
-      <p class="muted reveal">Book a free call and see how we can build your growth system.</p>
-      <div class="cta-row reveal">
+  <!-- CTA -->
+  <section>
+    <div class="container reveal">
+      <h2>Let’s automate your store.</h2>
+      <p class="muted">Tell us your bottlenecks. We’ll show you the systems that remove them.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
         <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
-        <a class="btn btn-ghost" href="mailto:hello@yourdomain.com">Email Us</a>
-        <a class="btn btn-ghost" href="https://checkout.stripe.com/your-link" target="_blank" rel="noopener">Pay Securely</a>
+        <a class="btn btn-ghost" href="contact.html">Contact / FAQ</a>
       </div>
     </div>
   </section>
@@ -284,7 +262,7 @@
 <footer class="footer">
   <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <span>© <span id="year"></span> Forma</span>
-    <span><a href="#">Privacy Policy</a> · <a href="#">Service Agreement</a></span>
+    <span><a href="contact.html#policy">Privacy Policy</a> · <a href="contact.html#agreement">Service Agreement</a></span>
   </div>
 </footer>
 
@@ -292,23 +270,18 @@
   // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // scroll-reveal
+  // smoother reveal
   const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
-    });
-  },{threshold:.12});
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+  },{threshold:.14});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // subtle parallax for hero glow
+  // softer parallax
   const glow = document.querySelector('[data-parallax]');
   let lastY = 0;
   window.addEventListener('scroll',()=>{
-    const y = window.scrollY * 0.04;
-    if(Math.abs(y-lastY)>0.5){
-      glow.style.transform = `translateY(${y}px)`;
-      lastY = y;
-    }
+    const y = window.scrollY * 0.03;
+    if(Math.abs(y-lastY)>0.3){ glow.style.transform = `translateY(${y}px)`; lastY = y; }
   },{passive:true});
 </script>
 </body>
