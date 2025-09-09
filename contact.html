@@ -4,16 +4,26 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Forma — Contact & FAQ</title>
+<link rel="icon" type="image/png" href="LogoForma.png?v=4">
+<meta name="description" content="Contact Forma. Book a call or send us a message.">
+
 <style>
-  :root{--bg:#0C1210;--bg2:#121916;--card:#101714;--line:#1b2622;--text:#F4F7F6;--muted:#C6DAD3;--jade:#0BAE7E;--jade-dark:#0A8A64;--maxw:900px;--radius:16px}
-  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  :root{--bg:#0E1412;--bg2:#141B18;--card:#101714;--line:#1b2622;--text:#F4F7F6;--muted:#C6DAD3;--jade:#0BAE7E;--jade-dark:#0A8A64;--maxw:900px;--radius:16px}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
   a{color:var(--jade);text-decoration:none}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
-  header{position:sticky;top:0;z-index:50;background:rgba(12,18,16,.55);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+
+  /* Header (same as Home) */
+  header{position:sticky;top:0;z-index:50;background:rgba(14,20,18,.6);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;flex-wrap:wrap;row-gap:6px}
   .brand{display:flex;align-items:center;gap:14px}
-  .brand svg{width:34px;height:34px}
-  section{padding:84px 0;border-bottom:1px solid var(--line)}
+  .brand img{width:38px;height:38px;display:block}
+  .brand span{font-weight:700;font-size:22px;line-height:38px}
+  nav a{padding:10px 12px;color:#eaf6f2;border-radius:10px}
+  nav a.btn{border:1px solid var(--jade)}
+  nav a.active{color:#07110d;background:linear-gradient(90deg,var(--jade),var(--jade-dark))}
+
+  section{padding:108px 0;border-bottom:1px solid var(--line)}
   h1{font-size:clamp(28px,5vw,44px);margin:0 0 10px}
   h2{font-size:clamp(22px,4vw,32px);margin:0 0 10px}
   p.muted{color:var(--muted)}
@@ -21,65 +31,130 @@
   details{border:1px solid #ffffff14;border-radius:12px;padding:12px 14px;background:#0f1513}
   details+details{margin-top:10px}
   summary{cursor:pointer}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s cubic-bezier(.22,.61,.36,1)}
+  .reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
+
 <header>
   <div class="container nav">
     <div class="brand">
-      <svg viewBox="0 0 64 64" aria-label="Forma logo"><path fill="#0BAE7E" d="M32 6c2.5 0 4.5 2 4.5 4.5v9.2c0 2 .8 3 2.7 3h9.3c2.5 0 4.5 2 4.5 4.5S51 32 48.5 32h-9.2c-2 0-3 .8-3 2.7v9.3c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5v-9.2c0-2-.8-3-2.7-3h-9.3C10 32 8 30 8 27.5S10 23 12.5 23h9.2c2 0 3-.8 3-2.7v-9.3C24.7 8 26.6 6 29.1 6H32z"/></svg>
-      <strong>Forma</strong>
+      <img src="LogoForma.png?v=4" alt="Forma logo" width="38" height="38"/>
+      <span>Forma</span>
     </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
+      <a href="index.html#packages">Packages</a>
+      <a href="contact.html" class="btn active">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section>
+  <section class="reveal">
     <div class="container">
       <h1>Contact</h1>
-      <p class="muted">Quickest way: book a call. Or email us — we’ll reply within 24–48h.</p>
+      <p class="muted">Quickest way: book a call. Or email us — we reply within 24–48 hours.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
         <a href="https://calendly.com/your-link" target="_blank" rel="noopener" style="background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;padding:12px 18px;border-radius:14px;font-weight:600">Book a Call</a>
-        <a href="mailto:hello@yourdomain.com" style="border:1px solid #ffffff24;padding:12px 18px;border-radius:14px;font-weight:600">Email Us</a>
-        <a href="https://checkout.stripe.com/your-link" target="_blank" rel="noopener" style="border:1px solid #ffffff24;padding:12px 18px;border-radius:14px;font-weight:600">Pay Securely</a>
+        <a href="mailto:felixcoutumcevoy@gmail.com" style="border:1px solid #ffffff24;padding:12px 18px;border-radius:14px;font-weight:600">Email Us</a>
       </div>
     </div>
   </section>
 
-  <section id="faq">
+  <section id="faq" class="reveal">
     <div class="container">
       <h2>FAQ</h2>
       <details class="card"><summary><strong>Do you work only with Shopify?</strong></summary><p class="muted">We adapt to modern e-commerce stacks. If you sell online, we can automate your operations.</p></details>
-      <details class="card"><summary><strong>What’s the typical ROI?</strong></summary><p class="muted">Most brands see more carts recovered, faster billing, and hours saved weekly. We’ll map clear KPIs during your audit.</p></details>
-      <details class="card"><summary><strong>Who owns the tools?</strong></summary><p class="muted">You do. We configure and maintain them — you keep full access and ownership.</p></details>
+      <details class="card"><summary><strong>What’s the typical ROI?</strong></summary><p class="muted">Most brands see more carts recovered, faster billing, and hours saved weekly. We map clear KPIs during your audit.</p></details>
+      <details class="card"><summary><strong>Who owns the tools?</strong></summary><p class="muted">You do. We configure and maintain them. You keep full access and ownership.</p></details>
       <details class="card"><summary><strong>How are payments handled?</strong></summary><p class="muted">Monthly subscription via Stripe. You also pay your own software subscriptions directly.</p></details>
     </div>
   </section>
 
-  <section id="policy">
+  <section id="policy" class="reveal">
     <div class="container">
-      <h2>Privacy Policy (placeholder)</h2>
-      <p class="muted">Add your policy here when ready.</p>
+      <h2>Privacy Policy</h2>
+      <p class="muted">
+        This Privacy Policy explains how <strong>Forma</strong> (“we”, “us”) collects, uses, and protects your information.
+      </p>
+      <h3>Who we are</h3>
+      <p class="muted">Forma, based in Montreal, Canada. Contact: <a href="mailto:felixcoutumcevoy@gmail.com">felixcoutumcevoy@gmail.com</a>.</p>
+
+      <h3>What we collect</h3>
+      <ul class="muted">
+        <li><strong>Contact data</strong>, such as your name and email, when you reach out or book a call.</li>
+        <li><strong>Operational data</strong> that you choose to share during audits and projects.</li>
+        <li><strong>Usage data</strong> (basic logs) from our hosting provider (Vercel) to keep the site secure and reliable.</li>
+      </ul>
+
+      <h3>How we use it</h3>
+      <ul class="muted">
+        <li>To respond to inquiries and provide services.</li>
+        <li>To operate, protect, and improve our website and services.</li>
+        <li>To communicate about updates, only when relevant.</li>
+      </ul>
+
+      <h3>Tools and processors</h3>
+      <p class="muted">
+        We may use third-party providers to run our site and deliver services, including Vercel (hosting), GitHub (source control),
+        Google Workspace (email), Calendly (scheduling), Stripe (billing), and other tools required to build and maintain client systems
+        (for example, automation and analytics tools selected in your package). These providers process data on our behalf under their own terms and privacy policies.
+      </p>
+
+      <h3>Cookies and analytics</h3>
+      <p class="muted">
+        We currently use only essential cookies required by our hosting and embedded tools. We do not run analytics by default. If we add analytics (for example, GA4 or Plausible),
+        we will update this policy and provide a cookie notice where required.
+      </p>
+
+      <h3>Data sharing</h3>
+      <p class="muted">We do not sell your personal data. We share data only with your consent, with service providers as described above, or as required by law.</p>
+
+      <h3>International transfers</h3>
+      <p class="muted">Our providers may process data globally. We rely on appropriate safeguards (for example, standard contractual clauses) where required.</p>
+
+      <h3>Data retention</h3>
+      <p class="muted">We keep contact and project data only as long as necessary for our relationship and legal obligations. You may request deletion at any time.</p>
+
+      <h3>Your rights</h3>
+      <p class="muted">Depending on your location, you may have rights to access, correct, delete, or restrict processing of your data. Contact us to exercise these rights.</p>
+
+      <h3>Contact</h3>
+      <p class="muted">Questions or requests: <a href="mailto:felixcoutumcevoy@gmail.com">felixcoutumcevoy@gmail.com</a>.</p>
+
+      <h3>Updates</h3>
+      <p class="muted">We may update this policy. We will post the new version with a new effective date.</p>
     </div>
   </section>
 
-  <section id="agreement">
+  <section id="agreement" class="reveal">
     <div class="container">
-      <h2>Service Agreement (summary)</h2>
-      <p class="muted">We provide automation services as described in your package. Monthly billing in advance. You own your tools. We limit liability to recent fees paid. Full agreement shared for e-signature before onboarding.</p>
+      <h2>Service Agreement (Summary)</h2>
+      <p class="muted">
+        We provide automation services as described in your chosen package. Monthly billing in advance via Stripe. You own your tools and accounts.
+        We configure, implement, and maintain agreed systems. Our liability is limited to the fees paid in the 3 months prior to a claim.
+        Full contract is provided for e-signature before onboarding.
+      </p>
     </div>
   </section>
 </main>
 
-<footer style="padding:44px 0;color:#a7c3bb">
+<footer style="padding:48px 0;color:#a7c3bb">
   <div class="container" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
     <span>© <script>document.write(new Date().getFullYear())</script> Forma</span>
     <span><a href="#policy">Privacy Policy</a> · <a href="#agreement">Service Agreement</a></span>
   </div>
 </footer>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+  },{threshold:.10});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
