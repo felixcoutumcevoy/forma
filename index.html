@@ -5,18 +5,26 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Forma — E-commerce Automation</title>
 <meta name="description" content="We automate your brand’s systems so you can scale faster."/>
+<link rel="icon" type="image/png" href="LogoForma.png?v=4">
+
+<!-- Open Graph (nice preview when you share the link) -->
+<meta property="og:title" content="Forma — E-commerce Automation">
+<meta property="og:description" content="Automation-only. We replace repetitive work with systems that run 24/7 so your team focuses on growth.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1640622658758-57b6b3fe4a15?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:type" content="website">
+
 <style>
-  /* ===== Theme (lighter luxe jade) ===== */
+  /* ===== Theme (luxe jade, slightly lighter) ===== */
   :root{
-    --bg:#0C1210;          /* page background */
-    --bg2:#121916;         /* section / panels */
-    --card:#101714;        /* card surface */
-    --line:#1b2622;        /* separators */
-    --text:#F4F7F6;        /* main text */
-    --muted:#C6DAD3;       /* soft text */
-    --jade:#0BAE7E;        /* jade */
-    --jade-dark:#0A8A64;   /* darker jade */
-    --jade-ghost:#0bae7e22;/* faint jade glow */
+    --bg:#0E1412;
+    --bg2:#141B18;
+    --card:#101714;
+    --line:#1b2622;
+    --text:#F4F7F6;
+    --muted:#C6DAD3;
+    --jade:#0BAE7E;
+    --jade-dark:#0A8A64;
+    --jade-ghost:#0bae7e22;
     --maxw:1200px; --radius:16px;
   }
   *{box-sizing:border-box}
@@ -27,15 +35,17 @@
   img{max-width:100%;display:block}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-  /* ===== Header / Nav ===== */
-  header{position:sticky;top:0;z-index:50;background:rgba(12,18,16,.55);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  /* ===== Header / Nav (identical on all pages) ===== */
+  header{position:sticky;top:0;z-index:50;background:rgba(14,20,18,.6);
+    backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;flex-wrap:wrap;row-gap:6px}
   .brand{display:flex;align-items:center;gap:14px}
-  .brand svg{width:34px;height:34px;display:block}
-  .brand span{font-weight:700;font-size:18px;line-height:34px}
-  nav a{padding:10px 12px;color:#eaf6f2}
-  nav a.btn{border:1px solid var(--jade);border-radius:12px}
+  .brand img{width:38px;height:38px;display:block}
+  .brand span{font-weight:700;font-size:22px;line-height:38px} /* bigger wordmark */
+  nav a{padding:10px 12px;color:#eaf6f2;border-radius:10px}
+  nav a.btn{border:1px solid var(--jade)}
   nav a.btn:hover{background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#07110d}
+  nav a.active{color:#07110d;background:linear-gradient(90deg,var(--jade),var(--jade-dark))}
 
   /* ===== Hero ===== */
   .hero{position:relative;overflow:hidden;padding:120px 0 96px;
@@ -51,14 +61,13 @@
   .btn{display:inline-block;padding:12px 18px;border-radius:14px;font-weight:600}
   .btn-primary{background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;box-shadow:0 10px 30px #0bae7e33}
   .btn-ghost{border:1px solid #ffffff24}
-
   .hero-mock{position:relative;border:1px solid #ffffff0f;background:var(--card);
     border-radius:20px;padding:18px;box-shadow:0 30px 80px #0008}
   .glow{position:absolute;inset:-30%;background:radial-gradient(closest-side, #0bae7e20, transparent);
     filter:blur(42px);z-index:-1;transform:translateY(0);will-change:transform;}
 
   /* ===== Sections ===== */
-  section{padding:96px 0;border-bottom:1px solid var(--line)}
+  section{padding:108px 0;border-bottom:1px solid var(--line)}
   h2{font-size:clamp(28px,4vw,40px);margin:0 0 12px}
   .muted{color:var(--muted)}
   .grid{display:grid;gap:24px}
@@ -71,20 +80,20 @@
   .panel{border:1px solid #ffffff12;background:var(--bg2);border-radius:18px;padding:24px}
   @media (max-width:960px){.split{grid-template-columns:1fr}}
 
-  /* ===== Pricing (aligned buttons + nicer bullet spacing) ===== */
-  .pricing .card{display:flex;flex-direction:column;gap:12px;min-height:500px}
-  .pricing ul li{margin-bottom:8px}              /* a bit more space between bullets */
+  /* ===== Pricing (aligned buttons + extra spacing) ===== */
+  .pricing .card{display:flex;flex-direction:column;gap:12px;min-height:490px}
+  .pricing ul li{margin-bottom:9px}
   .pricing ul li:last-child{margin-bottom:0}
   .price{color:#dbf1e8;font-weight:700}
   .tag{font-size:12px;border:1px dashed #2e6b5a;border-radius:10px;padding:4px 8px;color:#aee3cf;align-self:flex-start}
-  .spacer{height:12px}                           /* keeps a small gap above actions */
-  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .spacer{height:10px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 
   /* ===== Footer ===== */
   .footer{padding:48px 0;color:#a7c3bb;font-size:14px}
 
-  /* ===== Scroll reveal (smoother) ===== */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1)}
+  /* ===== Scroll reveal (smooth) ===== */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s cubic-bezier(.22,.61,.36,1)}
   .reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
@@ -93,10 +102,7 @@
 <header>
   <div class="container nav">
     <div class="brand">
-      <!-- Inline SVG logo (works without a file). -->
-      <svg viewBox="0 0 64 64" aria-label="Forma logo" role="img">
-        <path fill="var(--jade)" d="M32 6c2.5 0 4.5 2 4.5 4.5v9.2c0 2 .8 3 2.7 3h9.3c2.5 0 4.5 2 4.5 4.5S51 32 48.5 32h-9.2c-2 0-3 .8-3 2.7v9.3c0 2.5-2 4.5-4.5 4.5s-4.5-2-4.5-4.5v-9.2c0-2-.8-3-2.7-3h-9.3C10 32 8 30 8 27.5S10 23 12.5 23h9.2c2 0 3-.8 3-2.7v-9.3C24.7 8 26.6 6 29.1 6H32z"/>
-      </svg>
+      <img src="LogoForma.png?v=4" alt="Forma logo" width="38" height="38"/>
       <span>Forma</span>
     </div>
     <nav>
@@ -115,13 +121,16 @@
     <div class="container hero-center">
       <div class="reveal">
         <h1>We automate your brand’s systems so you can scale faster.</h1>
-        <p class="sub">Automation-only. We replace repetitive work (carts, CRM, invoicing, reporting, support) with systems that run 24/7 — so your team can focus on growth.</p>
+        <p class="sub">
+          Automation only. We replace repetitive work, such as carts, CRM, invoicing, reporting, and support, with systems that run 24/7 so your team can focus on growth.
+        </p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
           <a class="btn btn-ghost" href="products.html">Learn More</a>
         </div>
       </div>
       <div class="hero-mock reveal">
+        <!-- Royalty-free placeholder; replace when you have your own asset -->
         <img src="https://images.unsplash.com/photo-1640622658758-57b6b3fe4a15?q=80&w=1200&auto=format&fit=crop" alt="Automation dashboard mockup"/>
       </div>
     </div>
@@ -132,7 +141,7 @@
     <div class="container split">
       <div class="panel reveal">
         <h2>Operations steal your time.</h2>
-        <p class="muted">Abandoned carts, invoices, copy-paste spreadsheets, slow follow-ups — it adds up. We build reliable automations so your operations stop leaking time and money.</p>
+        <p class="muted">Abandoned carts, invoices, copy-paste spreadsheets, and slow follow-ups add up. We build reliable automations so your operations stop leaking time and money.</p>
         <div class="grid grid-2" style="margin-top:14px">
           <div class="card"><h3>Lost revenue</h3><p class="muted">Recover more carts and repeat purchases automatically.</p></div>
           <div class="card"><h3>Slow cashflow</h3><p class="muted">Send invoices and confirmations instantly.</p></div>
@@ -150,20 +159,20 @@
   <section id="systems">
     <div class="container">
       <h2 class="reveal">Systems that replace repetitive work.</h2>
-    <p class="muted reveal">Works with modern e-commerce stacks. We adapt to your tools.</p>
+      <p class="muted reveal">Works with modern e-commerce stacks. We adapt to your tools.</p>
       <div class="grid grid-3" style="margin-top:18px">
         <div class="card reveal">
           <span class="pill">Retention</span>
-          <h3>Recover & retain</h3>
+          <h3>Recover and retain</h3>
           <ul>
             <li>Abandoned cart messages</li>
-            <li>Thank-you & review nudges</li>
+            <li>Thank-you and review nudges</li>
             <li>Loyalty touchpoints</li>
           </ul>
         </div>
         <div class="card reveal">
           <span class="pill">Operations</span>
-          <h3>Streamline & standardize</h3>
+          <h3>Streamline and standardize</h3>
           <ul>
             <li>Customer tracking</li>
             <li>Automated invoicing</li>
@@ -211,9 +220,9 @@
           <h3>Growth Automation</h3>
           <div class="price">from $2,500 / month</div>
           <ul>
-            <li>Post-purchase & loyalty flows</li>
+            <li>Post-purchase and loyalty flows</li>
             <li>Automated invoicing</li>
-            <li>Customer segments & alerts</li>
+            <li>Customer segments and alerts</li>
             <li>Advanced KPI dashboard</li>
           </ul>
           <div class="spacer"></div>
@@ -229,7 +238,7 @@
           <div class="price">from $5,000 / month</div>
           <ul>
             <li>End-to-end automations</li>
-            <li>Support & returns workflows</li>
+            <li>Support and returns workflows</li>
             <li>Re-engagement programs</li>
             <li>Executive dashboards</li>
           </ul>
@@ -267,13 +276,13 @@
   // year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // reveal
+  // reveal (smooth on scroll)
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
-  },{threshold:.10}); // smoother
+  },{threshold:.10});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // soft parallax
+  // soft parallax on hero glow
   const glow = document.querySelector('[data-parallax]');
   let lastY = 0;
   window.addEventListener('scroll',()=>{
