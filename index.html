@@ -97,6 +97,29 @@
   .reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
+  <!-- Minimal cookie banner -->
+<div id="cookiebar" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+background:#141B18;color:#F4F7F6;border:1px solid #ffffff22;border-radius:10px;padding:10px 14px;
+box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:9999;font-size:14px">
+  <span>This website uses cookies for analytics to improve your experience.</span>
+  <button onclick="__acceptCookies()"
+          style="background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;
+                 border:0;border-radius:10px;padding:8px 12px;font-weight:600">Accept</button>
+  <button onclick="__declineCookies()"
+          style="background:#0f1513;border:1px solid #ffffff24;color:#d7eee6;border-radius:10px;padding:8px 12px">
+    Decline
+  </button>
+</div>
+<script>
+  // Hide banner if already decided
+  (function(){
+    var c = localStorage.getItem('cookie_consent');
+    if (c === 'accept' || c === 'decline') {
+      var bar = document.getElementById('cookiebar');
+      if (bar) bar.remove();
+    }
+  })();
+</script>
 <body>
 
 <header>
