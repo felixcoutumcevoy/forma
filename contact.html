@@ -1,6 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- GA4 (loads only after consent) -->
+<script>
+  (function(){
+    const GA_ID = 'G-9RZ6HHN1PJ'; // your GA4 ID
+
+    // load GA script
+    function loadGA(){
+      if (window.__gaLoaded) return;
+      window.__gaLoaded = true;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    }
+
+    // check consent
+    const consent = localStorage.getItem('cookie_consent');
+    if (consent === 'accept') loadGA(); // already accepted
+
+    // expose for banner buttons
+    window.__acceptCookies = function(){
+      localStorage.setItem('cookie_consent','accept');
+      loadGA();
+      const bar = document.getElementById('cookiebar');
+      if (bar) bar.remove();
+    };
+    window.__declineCookies = function(){
+      localStorage.setItem('cookie_consent','decline');
+      const bar = document.getElementById('cookiebar');
+      if (bar) bar.remove();
+    };
+  })();
+</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Forma — Contact & FAQ</title>
