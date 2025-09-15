@@ -1,69 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- GA4 (loads only after consent) -->
-<script>
-  (function(){
-    const GA_ID = 'G-9RZ6HHN1PJ'; // your GA4 ID
-
-    // load GA script
-    function loadGA(){
-      if (window.__gaLoaded) return;
-      window.__gaLoaded = true;
-      const s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', GA_ID);
-    }
-
-    // check consent
-    const consent = localStorage.getItem('cookie_consent');
-    if (consent === 'accept') loadGA(); // already accepted
-
-    // expose for banner buttons
-    window.__acceptCookies = function(){
-      localStorage.setItem('cookie_consent','accept');
-      loadGA();
-      const bar = document.getElementById('cookiebar');
-      if (bar) bar.remove();
-    };
-    window.__declineCookies = function(){
-      localStorage.setItem('cookie_consent','decline');
-      const bar = document.getElementById('cookiebar');
-      if (bar) bar.remove();
-    };
-  })();
-</script>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Forma — E-commerce Automation</title>
 <meta name="description" content="We automate your brand’s systems so you can scale faster."/>
-<link rel="icon" type="image/png" href="LogoForma.png?v=4">
+<link rel="icon" type="image/png" href="LogoForma.png?v=5">
 
-<!-- Open Graph (nice preview when you share the link) -->
+<!-- Open Graph -->
 <meta property="og:title" content="Forma — E-commerce Automation">
-<meta property="og:description" content="Automation-only. We replace repetitive work with systems that run 24/7 so your team focuses on growth.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1640622658758-57b6b3fe4a15?q=80&w=1200&auto=format&fit=crop">
+<meta property="og:description" content="Automation only. We replace repetitive work with systems that run 24/7 so your team can focus on growth.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop">
 <meta property="og:type" content="website">
 
 <style>
-  /* ===== Theme (luxe jade, slightly lighter) ===== */
   :root{
-    --bg:#0E1412;
-    --bg2:#141B18;
-    --card:#101714;
-    --line:#1b2622;
-    --text:#F4F7F6;
-    --muted:#C6DAD3;
-    --jade:#0BAE7E;
-    --jade-dark:#0A8A64;
-    --jade-ghost:#0bae7e22;
-    --maxw:1200px; --radius:16px;
+    --bg:#0E1412; --bg2:#141B18; --card:#101714; --line:#1b2622;
+    --text:#F4F7F6; --muted:#C6DAD3; --jade:#0BAE7E; --jade-dark:#0A8A64; --jade-ghost:#0bae7e22;
+    --maxw:1200px; --radius:16px
   }
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--text);
@@ -73,24 +27,22 @@
   img{max-width:100%;display:block}
   .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-  /* ===== Header / Nav (identical on all pages) ===== */
-  header{position:sticky;top:0;z-index:50;background:rgba(14,20,18,.6);
-    backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
+  /* Header (identical across pages) */
+  header{position:sticky;top:0;z-index:50;background:rgba(14,20,18,.6);backdrop-filter:blur(10px);border-bottom:1px solid #ffffff10}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;flex-wrap:wrap;row-gap:6px}
   .brand{display:flex;align-items:center;gap:14px}
-  .brand img{width:38px;height:38px;display:block}
-  .brand span{font-weight:700;font-size:22px;line-height:38px} /* bigger wordmark */
+  .brand img{width:38px;height:38px}
+  .brand span{font-weight:700;font-size:22px;line-height:38px}
   nav a{padding:10px 12px;color:#eaf6f2;border-radius:10px}
   nav a.btn{border:1px solid var(--jade)}
   nav a.btn:hover{background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#07110d}
-  nav a.active{color:#07110d;background:linear-gradient(90deg,var(--jade),var(--jade-dark))}
 
-  /* ===== Hero ===== */
+  /* Hero */
   .hero{position:relative;overflow:hidden;padding:120px 0 96px;
     background:
       radial-gradient(900px 520px at 20% -10%, var(--jade-ghost), transparent 60%),
       radial-gradient(700px 360px at 85% 0%,  #11e0b028, transparent 65%);
-    border-bottom:1px solid var(--line);}
+    border-bottom:1px solid var(--line)}
   .hero-center{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
   @media (max-width:960px){.hero-center{grid-template-columns:1fr}}
   .hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;margin:0 0 16px}
@@ -102,9 +54,9 @@
   .hero-mock{position:relative;border:1px solid #ffffff0f;background:var(--card);
     border-radius:20px;padding:18px;box-shadow:0 30px 80px #0008}
   .glow{position:absolute;inset:-30%;background:radial-gradient(closest-side, #0bae7e20, transparent);
-    filter:blur(42px);z-index:-1;transform:translateY(0);will-change:transform;}
+    filter:blur(42px);z-index:-1;transform:translateY(0);will-change:transform}
 
-  /* ===== Sections ===== */
+  /* Sections */
   section{padding:108px 0;border-bottom:1px solid var(--line)}
   h2{font-size:clamp(28px,4vw,40px);margin:0 0 12px}
   .muted{color:var(--muted)}
@@ -118,7 +70,7 @@
   .panel{border:1px solid #ffffff12;background:var(--bg2);border-radius:18px;padding:24px}
   @media (max-width:960px){.split{grid-template-columns:1fr}}
 
-  /* ===== Pricing (aligned buttons + extra spacing) ===== */
+  /* Pricing */
   .pricing .card{display:flex;flex-direction:column;gap:12px;min-height:490px}
   .pricing ul li{margin-bottom:9px}
   .pricing ul li:last-child{margin-bottom:0}
@@ -127,43 +79,20 @@
   .spacer{height:10px}
   .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 
-  /* ===== Footer ===== */
+  /* Footer */
   .footer{padding:48px 0;color:#a7c3bb;font-size:14px}
 
-  /* ===== Scroll reveal (smooth) ===== */
+  /* Reveal */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s cubic-bezier(.22,.61,.36,1)}
   .reveal.show{opacity:1;transform:translateY(0)}
 </style>
 </head>
-  <!-- Minimal cookie banner -->
-<div id="cookiebar" style="position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
-background:#141B18;color:#F4F7F6;border:1px solid #ffffff22;border-radius:10px;padding:10px 14px;
-box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:9999;font-size:14px">
-  <span>This website uses cookies for analytics to improve your experience.</span>
-  <button onclick="__acceptCookies()"
-          style="background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;
-                 border:0;border-radius:10px;padding:8px 12px;font-weight:600">Accept</button>
-  <button onclick="__declineCookies()"
-          style="background:#0f1513;border:1px solid #ffffff24;color:#d7eee6;border-radius:10px;padding:8px 12px">
-    Decline
-  </button>
-</div>
-<script>
-  // Hide banner if already decided
-  (function(){
-    var c = localStorage.getItem('cookie_consent');
-    if (c === 'accept' || c === 'decline') {
-      var bar = document.getElementById('cookiebar');
-      if (bar) bar.remove();
-    }
-  })();
-</script>
 <body>
 
 <header>
   <div class="container nav">
     <div class="brand">
-      <img src="LogoForma.png?v=4" alt="Forma logo" width="38" height="38"/>
+      <img src="LogoForma.png?v=5" alt="Forma logo" width="38" height="38"/>
       <span>Forma</span>
     </div>
     <nav>
@@ -186,13 +115,13 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
           Automation only. We replace repetitive work, such as carts, CRM, invoicing, reporting, and support, with systems that run 24/7 so your team can focus on growth.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
+          <a class="btn btn-primary" href="contact.html">Book a Free Call</a>
           <a class="btn btn-ghost" href="products.html">Learn More</a>
         </div>
       </div>
       <div class="hero-mock reveal">
-        <!-- Royalty-free placeholder; replace when you have your own asset -->
-        <img src="https://images.unsplash.com/photo-1640622658758-57b6b3fe4a15?q=80&w=1200&auto=format&fit=crop" alt="Automation dashboard mockup"/>
+        <!-- Royalty-free placeholder -->
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop" alt="Automation dashboard mockup"/>
       </div>
     </div>
   </section>
@@ -211,7 +140,7 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
         </div>
       </div>
       <div class="panel reveal">
-        <img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1200&auto=format&fit=crop" alt="Operations visual"/>
+        <img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1600&auto=format&fit=crop" alt="Operations visual"/>
       </div>
     </div>
   </section>
@@ -271,7 +200,7 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
           </ul>
           <div class="spacer"></div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-primary" href="contact.html">Book a Call</a>
             <a class="btn btn-ghost" href="products.html#starter">Learn More</a>
           </div>
         </div>
@@ -288,7 +217,7 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
           </ul>
           <div class="spacer"></div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-primary" href="contact.html">Book a Call</a>
             <a class="btn btn-ghost" href="products.html#growth">Learn More</a>
           </div>
         </div>
@@ -305,7 +234,7 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
           </ul>
           <div class="spacer"></div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Call</a>
+            <a class="btn btn-primary" href="contact.html">Book a Call</a>
             <a class="btn btn-ghost" href="products.html#full">Learn More</a>
           </div>
         </div>
@@ -319,8 +248,8 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
       <h2>Let’s automate your store.</h2>
       <p class="muted">Tell us your bottlenecks. We’ll show you the systems that remove them.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
-        <a class="btn btn-primary" href="https://calendly.com/your-link" target="_blank" rel="noopener">Book a Free Call</a>
-        <a class="btn btn-ghost" href="contact.html">Contact / FAQ</a>
+        <a class="btn btn-primary" href="contact.html">Book a Free Call</a>
+        <a class="btn btn-ghost" href="products.html">See Packages</a>
       </div>
     </div>
   </section>
@@ -334,16 +263,11 @@ box-shadow:0 8px 20px #0007;display:flex;gap:10px;align-items:center;z-index:999
 </footer>
 
 <script>
-  // year
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // reveal (smooth on scroll)
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
   },{threshold:.10});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // soft parallax on hero glow
   const glow = document.querySelector('[data-parallax]');
   let lastY = 0;
   window.addEventListener('scroll',()=>{
