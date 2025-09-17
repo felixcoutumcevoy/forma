@@ -64,29 +64,76 @@
     </div>
   </section>
 
-  <section id="starter">
-    <div class="container grid grid-2">
-      <div class="card reveal">
-        <span class="pill">Starter</span>
-        <h2>Starter Automation</h2>
-        <p class="muted">Quick wins and visibility. We stop obvious leaks and give you a simple view of performance.</p>
+  <!-- Products Section -->
+<section id="products" class="section">
+  <div class="container">
+    <h2 class="title">Our Products</h2>
+
+    <!-- Starter -->
+    <div class="grid">
+      <div>
+        <h3>Starter</h3>
+        <p>Simple automation for small teams. We replace repetitive tasks with clean workflows so you can focus on growth.</p>
         <ul>
-          <li>Cart recovery messages</li>
-          <li>Order confirmations and thank-you</li>
-          <li>Basic customer tracking</li>
-          <li>Simple KPI dashboard</li>
+          <li>Email automation</li>
+          <li>Basic reporting dashboards</li>
+          <li>Simple integrations (Calendly, Stripe, Gmail)</li>
         </ul>
-        <div class="price">from $1,000 / month</div>
-        <div class="kpi" style="margin-top:12px">
-          <span class="b">+10–25% carts recovered</span>
-          <span class="b">Fewer manual hours</span>
-        </div>
       </div>
-      <div class="media reveal">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop" alt="Starter visuals">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Starter visuals">
       </div>
     </div>
-  </section>
+
+    <!-- Growth -->
+    <div class="grid">
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1555421689-43cad7100751?q=80&w=1200&auto=format&fit=crop" alt="Growth visuals">
+      </div>
+      <div>
+        <h3>Growth</h3>
+        <p>More advanced automations to keep your business efficient as you expand.</p>
+        <ul>
+          <li>CRM setup & automation</li>
+          <li>Payment & invoicing flows</li>
+          <li>Advanced dashboards</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Full -->
+    <div class="grid">
+      <div>
+        <h3>Scale</h3>
+        <p>Full automation for scaling brands. Systems that run 24/7 to maximize ROI.</p>
+        <ul>
+          <li>Custom workflows & integrations</li>
+          <li>Inventory/order sync</li>
+          <li>Automated support flows</li>
+        </ul>
+      </div>
+      <div class="media">
+        <img src="https://images.unsplash.com/photo-1551281044-8d8fad7b2d7b?q=80&w=1200&auto=format&fit=crop" alt="Scale visuals">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Products visuals */
+.media {
+  border: 1px solid #ffffff12;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 420px;   /* keeps them balanced */
+  object-fit: cover;   /* crops tall images cleanly */
+}
+</style>
 
   <section id="growth">
     <div class="container grid grid-2">
