@@ -65,20 +65,28 @@
     <div class="container">
       <div class="card" style="max-width:640px">
         <h2>Send a Message</h2>
-        <form action="https://formspree.io/f/mdklvdqr" method="POST">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <input type="text" name="name" placeholder="Your name" required
-                   style="border-radius:10px;border:1px solid #ffffff22;background:#0f1513;color:#F4F7F6;padding:12px">
-            <input type="email" name="email" placeholder="Your email" required
-                   style="border-radius:10px;border:1px solid #ffffff22;background:#0f1513;color:#F4F7F6;padding:12px">
-          </div>
-          <textarea name="message" placeholder="Tell us what you want to automate"
-                    style="width:100%;margin-top:12px;border-radius:10px;border:1px solid #ffffff22;background:#0f1513;color:#F4F7F6;padding:12px;height:140px" required></textarea>
-          <button type="submit"
-                  style="margin-top:12px;background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;padding:12px 18px;border-radius:14px;font-weight:600;border:0">
-            Send
-          </button>
-        </form>
+  <form action="https://hook.us2.make.com/pu326b5m7y0g5fj3ha8uaqi96an4igmu" method="POST">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+    <input type="text" name="name" placeholder="Your name" required
+      style="border-radius:10px;border:1px solid #ffffff22;background:#0f1513;color:#F4F7F6;padding:12px">
+    <input type="email" name="email" placeholder="Your email" required
+      style="border-radius:10px;border:1px solid #ffffff22;background:#0f1513;color:#F4F7F6;padding:12px">
+  </div>
+
+  <textarea name="message" placeholder="Tell us what you want to automate"
+    style="width:100%;margin-top:12px;border-radius:10px;border:1px solid #ffffff22;background:#0f1513;color:#F4F7F6;padding:12px"></textarea>
+
+  <!-- Hidden fields for UTM tracking -->
+  <input type="hidden" name="utm_source" value="">
+  <input type="hidden" name="utm_medium" value="">
+  <input type="hidden" name="utm_campaign" value="">
+  <input type="hidden" name="utm_content" value="">
+
+  <button type="submit"
+    style="margin-top:12px;background:linear-gradient(90deg,var(--jade),var(--jade-dark));color:#05110d;padding:12px;border-radius:10px;border:none">
+    Send
+  </button>
+</form>
         <p class="muted" style="margin-top:8px;font-size:12px">We’ll reply within 24–48 hours.</p>
       </div>
     </div>
