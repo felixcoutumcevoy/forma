@@ -123,16 +123,16 @@
     Send
   </button>
 </form>
-        <script>
+<script>
 (function () {
   const form = document.getElementById('contact-form');
-  if (!form) return;
+  const card = document.getElementById('contact-card');
+  if (!form || !card) return;
 
   const webhook = form.action;
   const btn = form.querySelector('button[type="submit"]');
-  const ta  = form.querySelector('textarea[name="message"]');
 
-  // UTM capture (keeps for the session)
+  // Capture UTM params (store for session)
   const getParam = (k) => new URLSearchParams(location.search).get(k) || sessionStorage.getItem(k) || '';
   ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k => {
     let el = form.querySelector(`input[name="${k}"]`);
@@ -140,66 +140,37 @@
     el.value = getParam(k); if (el.value) sessionStorage.setItem(k, el.value);
   });
 
-  // tiny honeypot (bots fill it; users never see it)
+  // Honeypot
   let hp = form.querySelector('input[name="company"]');
   if (!hp) { hp = document.createElement('input'); hp.type='text'; hp.name='company'; hp.style.display='none'; form.prepend(hp); }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
-    // loading state
-    const originalBtn = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-    // stop bots
-    if (hp.value && hp.value.trim() !== '') {
-      showThanks(); // pretend success
-      return;
-    }
-
     const fd = new FormData(form);
-
     try {
-      // Fire-and-forget to Make; no-cors avoids CORS noise
       await fetch(webhook, { method: 'POST', body: fd, mode: 'no-cors' });
-      showThanks();
     } catch (err) {
-      showError('Something went wrong. Please try again.');
+      // ignore; Make still receives it with no-cors
       console.warn(err);
-      if (btn) { btn.disabled = false; btn.textContent = originalBtn; }
     }
+
+    // Replace the whole card with a thank-you panel (no redirect)
+    card.innerHTML = `
+      <div class="thankyou fade-in" style="display:flex;align-items:center;gap:12px;">
+        <div class="check">✓</div>
+        <div>
+          <h2 style="margin:0">Thanks — we got your message!</h2>
+          <p class="muted" style="margin:6px 0 0">
+            We’ll reply within 24–48 hours. If it’s urgent, email
+            <a href="mailto:felixcoutumcevoy@gmail.com">felixcoutumcevoy@gmail.com</a>.
+          </p>
+        </div>
+      </div>`;
   });
-
-  function showThanks() {
-    // lock inputs
-    [...form.querySelectorAll('input, textarea')].forEach(el => el.readOnly = true);
-
-    // morph the textarea into a thank-you box
-    if (ta) {
-      ta.classList.remove('morph-error');
-      ta.classList.add('morph-success');
-      ta.value = 'Thanks — we got your message! We’ll reply within 24–48 hours. ✅';
-      // grow height to fit text smoothly
-      ta.style.height = 'auto';
-      ta.style.height = ta.scrollHeight + 'px';
-    }
-
-    // button to "Sent!"
-    if (btn) { btn.classList.add('btn-sent'); btn.textContent = 'Sent!'; }
-
-    // optionally reset other inputs
-    [...form.querySelectorAll('input[type="text"], input[type="email"]')].forEach(el => el.value = el.value);
-  }
-
-  function showError(msg) {
-    if (ta) {
-      ta.classList.remove('morph-success');
-      ta.classList.add('morph-error');
-      ta.value = msg;
-      ta.style.height = 'auto';
-      ta.style.height = ta.scrollHeight + 'px';
-    }
-  }
 })();
 </script>
         <p class="muted" style="margin-top:8px;font-size:12px">We’ll reply within 24–48 hours.</p>
