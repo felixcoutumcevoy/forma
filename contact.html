@@ -1,6 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <style>
+/* smooth morph for the textarea */
+#contact-form textarea {
+  transition: background .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease, transform .25s ease, height .3s ease;
+}
+
+/* success look */
+#contact-form textarea.morph-success {
+  background: #0f1e18;
+  color: #9ee6c8;
+  border-color: #9ee6c8 !important;
+  box-shadow: 0 0 0 2px rgba(158,230,200,.25) inset;
+  transform: scale(1.01);
+}
+
+/* error look */
+#contact-form textarea.morph-error {
+  background: #1e0f12;
+  color: #ffb3b3;
+  border-color: #ff7a7a !important;
+  box-shadow: 0 0 0 2px rgba(255,122,122,.2) inset;
+}
+
+/* button loading + sent */
+#contact-form button[disabled] { opacity:.7; cursor:not-allowed; }
+#contact-form .btn-sent { background: linear-gradient(90deg,#38e8a5,#16b36e) !important; }
+</style>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Forma — Contact & FAQ</title>
