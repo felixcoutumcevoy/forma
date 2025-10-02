@@ -193,66 +193,6 @@
   }
 })();
 </script>
-        <script>
-(function () {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  const webhook = form.action;
-
-  // Fill UTM hidden fields from URL (and remember for future visits)
-  const getParam = (k) => new URLSearchParams(location.search).get(k) || sessionStorage.getItem(k) || '';
-  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k => {
-    const el = form.querySelector(`input[name="${k}"]`);
-    if (el) { el.value = getParam(k); if (el.value) sessionStorage.setItem(k, el.value); }
-  });
-
-  // Optional: simple honeypot anti-spam
-  let hp = form.querySelector('input[name="company"]');
-  if (!hp) {
-    hp = document.createElement('input');
-    hp.type = 'text';
-    hp.name = 'company';
-    hp.autocomplete = 'off';
-    hp.style.display = 'none'; // bots often fill it, humans won’t see it
-    form.prepend(hp);
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    // If honeypot filled, silently succeed to avoid tipping bots
-    if (hp.value && hp.value.trim() !== '') {
-      window.location.href = '/thank-you';
-      return;
-    }
-
-    // Basic UX: disable button + show “Sending…”
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn ? btn.textContent : '';
-    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-
-    const fd = new FormData(form);
-
-    try {
-      // Fire-and-forget to Make. no-cors avoids CORS errors; we don’t need the response body.
-      await fetch(webhook, { method: 'POST', body: fd, mode: 'no-cors' });
-    } catch (err) {
-      // Even if fetch can’t read the response (CORS), Make still receives it. We’ll redirect anyway.
-      console.warn('Submission sent; redirecting.', err);
-    }
-
-    // Redirect to your confirmation page
-    window.location.href = '/thank-you';
-
-    // If you prefer an inline success message instead of redirect, comment the line above and:
-    // if (btn) { btn.disabled = false; btn.textContent = originalText; }
-    // form.reset();
-    // document.querySelector('.muted')?.insertAdjacentHTML('afterend',
-    //   '<p style="margin-top:12px;color:#9ee6c8">Thanks — we got your message!</p>');
-  });
-})();
-</script>
         <p class="muted" style="margin-top:8px;font-size:12px">We’ll reply within 24–48 hours.</p>
       </div>
     </div>
