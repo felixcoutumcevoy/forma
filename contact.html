@@ -43,6 +43,25 @@
 <link rel="icon" type="image/png" href="LogoForma.png?v=5">
 <meta name="description" content="Contact Forma. Book a call or send us a message.">
 <style>
+  <style>
+/* Thank-you panel look + animation (uses your CSS vars) */
+#contact-card .ty-wrap{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  min-height:180px; text-align:center; gap:10px; padding:24px;
+  border:1px solid #ffffff22; border-radius:var(--radius);
+  background:linear-gradient(180deg,var(--card),#0f1513);
+  animation:ty-pop .35s ease;
+}
+#contact-card .ty-check{
+  width:64px; height:64px; border-radius:18px;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(90deg,var(--jade),var(--jade-dark)); color:#05110d;
+  font-size:34px; font-weight:800; box-shadow:0 6px 16px rgba(11,174,126,.25);
+}
+#contact-card .ty-title{ font-size:clamp(22px,4vw,32px); margin:6px 0 0 }
+#contact-card .ty-sub{ color:var(--muted); margin:2px 0 0 }
+@keyframes ty-pop{ from{opacity:0; transform:scale(.98)} to{opacity:1; transform:scale(1)} }
+</style>
   :root{--bg:#0E1412;--bg2:#141B18;--card:#101714;--line:#1b2622;--text:#F4F7F6;--muted:#C6DAD3;--jade:#0BAE7E;--jade-dark:#0A8A64;--maxw:900px;--radius:16px}
   *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
   a{color:var(--jade);text-decoration:none}
@@ -132,12 +151,13 @@
   const webhook = form.action;
   const btn = form.querySelector('button[type="submit"]');
 
-  // Capture UTM params (store for session)
-  const getParam = (k) => new URLSearchParams(location.search).get(k) || sessionStorage.getItem(k) || '';
-  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k => {
+  // Save UTM params (optional)
+  const qp = new URLSearchParams(location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k=>{
     let el = form.querySelector(`input[name="${k}"]`);
     if (!el) { el = document.createElement('input'); el.type='hidden'; el.name=k; form.appendChild(el); }
-    el.value = getParam(k); if (el.value) sessionStorage.setItem(k, el.value);
+    const v = qp.get(k) || sessionStorage.getItem(k) || '';
+    el.value = v; if (v) sessionStorage.setItem(k, v);
   });
 
   // Honeypot
@@ -145,31 +165,22 @@
   if (!hp) { hp = document.createElement('input'); hp.type='text'; hp.name='company'; hp.style.display='none'; form.prepend(hp); }
 
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-
+    e.preventDefault(); e.stopPropagation();
     if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
+    // Send to Make (fire & forget)
     const fd = new FormData(form);
-    try {
-      await fetch(webhook, { method: 'POST', body: fd, mode: 'no-cors' });
-    } catch (err) {
-      // ignore; Make still receives it with no-cors
-      console.warn(err);
-    }
+    try { await fetch(webhook, { method:'POST', body:fd, mode:'no-cors' }); }
+    catch(e){ console.warn('Sent but cannot read response (ok with no-cors).'); }
 
-    // Replace the whole card with a thank-you panel (no redirect)
+    // Swap the entire card content with a thank-you panel
     card.innerHTML = `
-      <div class="thankyou fade-in" style="display:flex;align-items:center;gap:12px;">
-        <div class="check">✓</div>
-        <div>
-          <h2 style="margin:0">Thanks — we got your message!</h2>
-          <p class="muted" style="margin:6px 0 0">
-            We’ll reply within 24–48 hours. If it’s urgent, email
-            <a href="mailto:felixcoutumcevoy@gmail.com">felixcoutumcevoy@gmail.com</a>.
-          </p>
-        </div>
+      <div class="ty-wrap">
+        <div class="ty-check">✓</div>
+        <h2 class="ty-title">Thank you</h2>
+        <p class="ty-sub">Your message was sent!</p>
       </div>`;
+    return false; // belt & suspenders: never do a native submit
   });
 })();
 </script>
